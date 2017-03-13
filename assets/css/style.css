@@ -1,0 +1,62 @@
+.theBack{
+
+	background-image: url(" ../images/52.jpg"), url("../images/90.jpg ");
+	background-repeat-x:  no-repeat;
+	background-repeat-y:repeat; 
+	min-height: 600px;
+}
+
+.footer{
+	position:fixed;
+	min-width: 100%;
+	max-height:50px;
+	bottom: 0px;
+	text-align: center;
+	background-image: url("../images/blue.png");
+	padding: 5px;
+	color: white;
+	font-size: 24px;
+	margin-top:10px;
+	text-shadow:  2px 4px red;
+
+}
+
+.header{
+	position:fixed;
+	min-width: 100%;
+	max-height:60px;
+	top: -10px;
+	text-align: center;
+	background-image: url("../images/blue.png");
+	color: white;
+	font-size: 26px;
+	margin-top:10px;
+	padding: 20px;
+	text-shadow:  2px 4px red;
+}
+
+.quest{
+
+	background-image: url("../images/black.png");
+
+	position:relative;
+	top:100px;
+	left: 200px;
+	width: 900px;
+	min-height: 400px;
+	opacity: .9;
+	color: white;
+}
+
+.start{
+
+	position: relative;
+	left:400px;
+	margin: 10px;
+	padding: 10px;
+	background-color: yellow;
+	border: 2px solid red;
+	font-size: 20px;
+	min-width: 100px;
+	font-weight: bolder;
+}
