@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	$(".done").hide();
 
 var questAns = ["Who was the legendary Benedictine monk who invented champagne? Dom Perignon.",
 "Name the largest freshwater lake in the world? Lake Superior.",
@@ -126,15 +127,20 @@ function trivgame(){
 
 		for(var j = 0; j <10; j++){
 
-			$("#triv").append( guessths[j] +" ? "+ poschoic[j] +" "+ poschoic[Math.floor(Math.random()*poschoic.length)]+" "+poschoic[Math.floor(Math.random()*poschoic.length)]);
+			$("#triv").append( guessths[j] +" ? "+ '<br/>'+ "  1) "+ poschoic[j] +"  2) "
+			+ poschoic[Math.floor(Math.random()*poschoic.length)]+"  3) "+poschoic[Math.floor(Math.random()*poschoic.length)]
+			+'<br/>'+'<br/>');
 		}
-		
+	$("#triv").css("margin","6px")	;
 }
 
-	
+	 
 	$(".start").on("click", function(){
 
 		trivgame();
+
+		$(".start").hide();
+		$(".done").show();
 	
 	});
 
