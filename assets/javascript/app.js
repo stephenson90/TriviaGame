@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	$(".done").hide();
+	$(".oneline").hide();
 
 var questAns = ["Who was the legendary Benedictine monk who invented champagne? Dom Perignon.",
 "Name the largest freshwater lake in the world? Lake Superior.",
@@ -9,7 +10,7 @@ var questAns = ["Who was the legendary Benedictine monk who invented champagne? 
 "What kind of weapon is a falchion? A sword.",
 "Which word goes before vest, beans and quartet? String.",
 "What is another word for lexicon? Dictionary.",
-"Name the seventh planet from the sun. Uranus.",
+"Name the seventh planet from the sun? Uranus.",
 "Who invented the rabies vaccination? Louis Pasteur.",
 "Which is the only American state to begin with the letter 'p'? Pennsylvania.",
 "Name the world's biggest island? Greenland.",
@@ -125,13 +126,39 @@ function trivgame(){
 		poschoic.push(answers[quesdex]);						
 		}
 
-		for(var j = 0; j <10; j++){
+		// for(var j = 0; j <10; j++){
 
-			$("#triv").append( guessths[j] +" ? "+ '<br/>'+ "  1) "+ poschoic[j] +"  2) "
-			+ poschoic[Math.floor(Math.random()*poschoic.length)]+"  3) "+poschoic[Math.floor(Math.random()*poschoic.length)]
-			+'<br/>'+'<br/>');
-		}
-	$("#triv").css("margin","6px")	;
+		// 	$("#triv").append( guessths[j] +" ? "+ '<br/>'+ "  1) "+ poschoic[j] +"  2) "
+		// 	+ poschoic[Math.floor(Math.random()*poschoic.length)]+"  3) "+poschoic[Math.floor(Math.random()*poschoic.length)]
+		// 	+'<br/>'+'<br/>');
+		// }
+
+		$("#quest0").append(guessths[0]);
+		$("#ans0").append("  " + poschoic[0] + "  ");
+		$("#ans1").append("  " + poschoic[3] + "  ");
+		$("#ans2").append("  " + poschoic[2] + "  ");
+
+		$("#quest1").append(guessths[1]);
+		$("#ans3").append("  " + poschoic[0] + "  ");
+		$("#ans4").append("  " + poschoic[4] + "  ");
+		$("#ans5").append("  " + poschoic[1] + "  ");
+
+			$("#quest2").append(guessths[2]);
+		$("#ans6").append("  " + poschoic[9] + "  ");
+		$("#ans7").append("  " + poschoic[2] + "  ");
+		$("#ans8").append("  " + poschoic[5] + "  ");
+
+			$("#quest3").append(guessths[3]);
+		$("#ans9").append("  " + poschoic[6] + "  ");
+		$("#ans10").append("  " + poschoic[8] + "  ");
+		$("#ans11").append("  " + poschoic[3] + "  ");
+
+			$("#quest4").append(guessths[4]);
+		$("#ans12").append("  " + poschoic[5] + "  ");
+		$("#ans13").append("  " + poschoic[4] + "  ");
+		$("#ans14").append("  " + poschoic[7] + "  ");
+
+	
 }
 
 	 
@@ -141,8 +168,19 @@ function trivgame(){
 
 		$(".start").hide();
 		$(".done").show();
+		$(".oneline").show();
 	
 	});
+
+	$(".done").on("click", function(){
+
+		$("form").submit(function(){
+        alert("Answers Submitted");
+    	});
+
+	});
+
+	$(".triv").css("margin","10px")	;
 
 		console.log(guessths);
 		console.log(poschoic);
