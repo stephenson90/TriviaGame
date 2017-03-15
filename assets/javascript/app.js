@@ -23,8 +23,8 @@ var questAns = ["Who was the legendary Benedictine monk who invented champagne? 
 "Which English town was a forerunner of the Parks Movement and the first city in Europe to have a street tram system? Birkenhead.",
 "Name the actor who starred in 142 films including The Quiet Man, The Shootist, The Searchers and Stagecoach? John Wayne.",
 "Name the film noir actress who starred in I Married a Witch, The Glass Key, So Proudly We Hail! and Sullivan's Travels? Veronica Lake.",
-"What is the oldest film ever made, and when was it made? Roundhay Garden Scene made in 1888.",
-"Which actress has won the most Oscars? Katharine Hepburn, with 4 Oscars and 12 nominations.",
+"What is the oldest film ever made, and when was it made? Roundhay Garden Scene.",
+"Which actress has won the most Oscars? Katharine Hepburn.",
 "Which actress said, \"Fasten your seatbelts. It's going to be a bumpy night,\" in All About Eve? Bette Davis.",
 " Name the director of the Lord of the Rings trilogy? Peter Jackson.",
 "Who played Neo in The Matrix? Keanu Reeves.",
@@ -100,8 +100,15 @@ var temque
 var quesdex;
 var guessths = [];
 var poschoic = [];
+var prGuessths=[];
+var prPoschoic=[];
+var rightAns = 0;
+var incoAns=0;
+var gen = 0;
+var gen2 =1;
+//var quest0; var quest1; var quest2; var quest3; var quest4;
 
-
+//creating a matrix of questions and a matrix of answers
 for ( var i = 0; i<questAns.length; i++){
 
 	tempo = questAns[i].split("?").pop();
@@ -111,52 +118,66 @@ for ( var i = 0; i<questAns.length; i++){
 
 
 }
-console.log("questions");
-	console.log(questions);
-	console.log("Answers");
-	console.log(answers);
 
+
+	//selecting 25 random questions and their answers
+function prTrivgame(){
 	
+		for(var i = 0; i < 45; i++){
+		quesdex = Math.floor(Math.random()* 90);
+		prGuessths.push(questions[quesdex]);
+		prPoschoic.push(answers[quesdex]);						
+		}
+	}
 
+
+
+		prTrivgame();
+
+		// Sort the questions so that the same question does not have the chance to be asked
 function trivgame(){
 	
-		for(var i = 0; i < 10; i++){
-		quesdex = Math.floor(Math.random()* 90);
-		guessths.push(questions[quesdex]);
-		poschoic.push(answers[quesdex]);						
+		for(var i = 0; i < 25; i++){
+
+			if(prGuessths[gen]!== prGuessths[gen2]){
+				gen++;
+				gen2++;
+				guessths.push(prGuessths[i]);
+				poschoic.push(prPoschoic[i]);
+
+			}
+
+			else{ continue;}
+												
 		}
 
-		// for(var j = 0; j <10; j++){
+		
 
-		// 	$("#triv").append( guessths[j] +" ? "+ '<br/>'+ "  1) "+ poschoic[j] +"  2) "
-		// 	+ poschoic[Math.floor(Math.random()*poschoic.length)]+"  3) "+poschoic[Math.floor(Math.random()*poschoic.length)]
-		// 	+'<br/>'+'<br/>');
-		// }
-
+		// Displaying the questions and the possible answers
 		$("#quest0").append(guessths[0]);
 		$("#ans0").append("  " + poschoic[0] + "  ");
-		$("#ans1").append("  " + poschoic[3] + "  ");
-		$("#ans2").append("  " + poschoic[2] + "  ");
+		$("#ans1").append("  " + poschoic[2] + "  ");
+		$("#ans2").append("  " + poschoic[6] + "  ");
 
 		$("#quest1").append(guessths[1]);
-		$("#ans3").append("  " + poschoic[0] + "  ");
+		$("#ans3").append("  " + poschoic[5] + "  ");
 		$("#ans4").append("  " + poschoic[4] + "  ");
 		$("#ans5").append("  " + poschoic[1] + "  ");
 
 			$("#quest2").append(guessths[2]);
-		$("#ans6").append("  " + poschoic[9] + "  ");
+		$("#ans6").append("  " + poschoic[3] + "  ");
 		$("#ans7").append("  " + poschoic[2] + "  ");
-		$("#ans8").append("  " + poschoic[5] + "  ");
+		$("#ans8").append("  " + poschoic[0] + "  ");
 
 			$("#quest3").append(guessths[3]);
-		$("#ans9").append("  " + poschoic[6] + "  ");
-		$("#ans10").append("  " + poschoic[8] + "  ");
+		$("#ans9").append("  " + poschoic[4] + "  ");
+		$("#ans10").append("  " + poschoic[1] + "  ");
 		$("#ans11").append("  " + poschoic[3] + "  ");
 
 			$("#quest4").append(guessths[4]);
 		$("#ans12").append("  " + poschoic[5] + "  ");
 		$("#ans13").append("  " + poschoic[4] + "  ");
-		$("#ans14").append("  " + poschoic[7] + "  ");
+		$("#ans14").append("  " + poschoic[6] + "  ");
 
 	
 }
@@ -172,35 +193,75 @@ function trivgame(){
 	
 	});
 
-	$(".done").on("click", function(){
+	var allAnswers = [];
+
+	 function getAnswers(){
+
+
+
+		var answer0 = $("input[type=radio][name = quest0]:checked").val();
+		allAnswers.push(answer0);
+	
+
+		var answer1 = $("input[type=radio][name = quest1]:checked").val();
+		allAnswers.push(answer1);
+	
+
+		var answer2 = $("input[type=radio][name = quest2]:checked").val();
+		allAnswers.push(answer2);
+		
+
+		var answer3 = $("input[type=radio][name = quest3]:checked").val();
+
+		allAnswers.push(answer3);
+
+		var answer4 = $("input[type=radio][name = quest4]:checked").val();
+		allAnswers.push(answer4);
+
+		}
+
+	
+	
+
+
+	function checkAnswers(){
+
+		getAnswers();
+
+		for (var i = 0; i < allAnswers.length; i++){
+
+			if(allAnswers[i] == "true"){
+				rightAns++;
+			
+				
+			}
+
+			else if (allAnswers[i] == "false"){
+				incoAns++;
+							}
+			
+		}
+console.log(allAnswers);
+	}
+	
+
 
 		$("form").submit(function(){
-        alert("Answers Submitted");
+			checkAnswers();
+			
+			
+		//$(".result").append("You got " + rightAns+" questions correctly " + incoAns + " questions incorrectly");
+		alert("You got " + rightAns +" questions correctly " + incoAns + " questions incorrectly");
+
     	});
 
-	});
 
 	$(".triv").css("margin","10px")	;
 
 		console.log(guessths);
 		console.log(poschoic);
-
-
-
-	// var stCount = function(){
-
-	// }
-
-	// $(".start").on("click", funtion(){
-
-	// 	stCount();
-
-
-	// });
-
-
-
-
+		console.log(rightAns);
+		console.log(incoAns);
 
 
 });
