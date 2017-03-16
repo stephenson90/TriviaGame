@@ -61,6 +61,18 @@
 	font-weight: bolder;
 }
 
+.start2{
+	position: relative;
+	left:150px;
+	margin: 10px;
+	padding: 10px;
+	font-size: 30px;
+	font-weight: bolder;
+	color:white;
+
+
+}
+
 .done{
 
 	position: relative;

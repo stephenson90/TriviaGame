@@ -190,6 +190,7 @@ function trivgame(){
 		trivgame();
 
 		$(".start").hide();
+		$(".start2").hide();
 		$(".done").show();
 		$(".oneline").show();
 	
@@ -265,7 +266,7 @@ console.log(allAnswers);
 			
 			
 		//$(".result").append("You got " + rightAns+" questions correctly " + incoAns + " questions incorrectly");
-		alert("You got " + rightAns +" questions correctly " + incoAns + " questions incorrectly");
+		alert("You got " + rightAns +" questions correctly " + incoAns + " questions incorrectly")
 
     	
 		}
@@ -275,14 +276,17 @@ console.log(allAnswers);
 }
 		function stop() {
 			  clearInterval(timeval);
+			  window.location.reload(true);
     }
 		$("form").submit(function(){
 			checkAnswers();
 			
 			
 		//$(".result").append("You got " + rightAns+" questions correctly " + incoAns + " questions incorrectly");
-		alert("You got " + rightAns +" questions correctly " + incoAns + " questions incorrectly");
-		history.go(0);
+		$(".start2").html("You got " + rightAns +" questions correctly " + incoAns + " questions incorrectly");
+		$(".start2").show();
+
+		
 
     	});
 
