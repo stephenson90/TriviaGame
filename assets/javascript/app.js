@@ -283,8 +283,8 @@ console.log(allAnswers);
 			
 			
 		//$(".result").append("You got " + rightAns+" questions correctly " + incoAns + " questions incorrectly");
-		$(".start2").html("You got " + rightAns +" questions correctly " + incoAns + " questions incorrectly");
-		$(".start2").show();
+		alert("You got " + rightAns +" questions correctly " + incoAns + " questions incorrectly");
+		
 
 		
 
