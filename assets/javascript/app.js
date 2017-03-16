@@ -1,6 +1,8 @@
 $(document).ready(function(){
 	$(".done").hide();
 	$(".oneline").hide();
+	
+
 
 var questAns = ["Who was the legendary Benedictine monk who invented champagne? Dom Perignon.",
 "Name the largest freshwater lake in the world? Lake Superior.",
@@ -123,7 +125,7 @@ for ( var i = 0; i<questAns.length; i++){
 	//selecting 25 random questions and their answers
 function prTrivgame(){
 	
-		for(var i = 0; i < 45; i++){
+		for(var i = 0; i < 65; i++){
 		quesdex = Math.floor(Math.random()* 90);
 		prGuessths.push(questions[quesdex]);
 		prPoschoic.push(answers[quesdex]);						
@@ -137,7 +139,7 @@ function prTrivgame(){
 		// Sort the questions so that the same question does not have the chance to be asked
 function trivgame(){
 	
-		for(var i = 0; i < 25; i++){
+		for(var i = 0; i < 45; i++){
 
 			if(prGuessths[gen]!== prGuessths[gen2]){
 				gen++;
@@ -147,7 +149,7 @@ function trivgame(){
 
 			}
 
-			else{ continue;}
+			else{ gen++; gen2++;}
 												
 		}
 
@@ -157,15 +159,15 @@ function trivgame(){
 		$("#quest0").append(guessths[0]);
 		$("#ans0").append("  " + poschoic[0] + "  ");
 		$("#ans1").append("  " + poschoic[2] + "  ");
-		$("#ans2").append("  " + poschoic[6] + "  ");
+		$("#ans2").append("  " + poschoic[4] + "  ");
 
 		$("#quest1").append(guessths[1]);
-		$("#ans3").append("  " + poschoic[5] + "  ");
+		$("#ans3").append("  " + poschoic[3] + "  ");
 		$("#ans4").append("  " + poschoic[4] + "  ");
 		$("#ans5").append("  " + poschoic[1] + "  ");
 
 			$("#quest2").append(guessths[2]);
-		$("#ans6").append("  " + poschoic[3] + "  ");
+		$("#ans6").append("  " + poschoic[5] + "  ");
 		$("#ans7").append("  " + poschoic[2] + "  ");
 		$("#ans8").append("  " + poschoic[0] + "  ");
 
@@ -177,14 +179,14 @@ function trivgame(){
 			$("#quest4").append(guessths[4]);
 		$("#ans12").append("  " + poschoic[5] + "  ");
 		$("#ans13").append("  " + poschoic[4] + "  ");
-		$("#ans14").append("  " + poschoic[6] + "  ");
+		$("#ans14").append("  " + poschoic[0] + "  ");
 
 	
 }
 
 	 
 	$(".start").on("click", function(){
-
+		countDown();
 		trivgame();
 
 		$(".start").hide();
@@ -230,34 +232,65 @@ function trivgame(){
 
 		for (var i = 0; i < allAnswers.length; i++){
 
-			if(allAnswers[i] == "true"){
+			if(allAnswers[i] === "true"){
 				rightAns++;
 			
 				
 			}
 
-			else if (allAnswers[i] == "false"){
+			else if (allAnswers[i] === "false"){
 				incoAns++;
 							}
 			
 		}
 console.log(allAnswers);
 	}
-	
 
+	var timeval;
 
-		$("form").submit(function(){
+	function countDown(){
+		var clock=30;
+
+		$("#pTime").html("Time left " + clock + " seconds");
+		timeval = setInterval(downSouth, 1000);
+
+		function downSouth(){
+			clock--;
+
+			$("#pTime").html("<h1>" + "Time left " + clock + " seconds" + "</h1>")
+
+			if(clock===0){
+				stop();
 			checkAnswers();
 			
 			
 		//$(".result").append("You got " + rightAns+" questions correctly " + incoAns + " questions incorrectly");
 		alert("You got " + rightAns +" questions correctly " + incoAns + " questions incorrectly");
 
+    	
+		}
+
+	}
+
+}
+		function stop() {
+			  clearInterval(timeval);
+    }
+		$("form").submit(function(){
+			checkAnswers();
+			
+			
+		//$(".result").append("You got " + rightAns+" questions correctly " + incoAns + " questions incorrectly");
+		alert("You got " + rightAns +" questions correctly " + incoAns + " questions incorrectly");
+		history.go(0);
+
     	});
 
 
 	$(".triv").css("margin","10px")	;
-
+	$("#pTime").css({"color":"white","font-size": "26px", "position":"relative", "top":"65px" });
+	
+	
 		console.log(guessths);
 		console.log(poschoic);
 		console.log(rightAns);
