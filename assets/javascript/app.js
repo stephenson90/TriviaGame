@@ -118,33 +118,42 @@ for ( var i = 0; i<questAns.length; i++){
 
 }
 	//selecting 25 random questions and their answers
-function prTrivgame(){
+// function prTrivgame(){
 	
-		for(var i = 0; i < 65; i++){
-		quesdex = Math.floor(Math.random()* 90);
-		prGuessths.push(questions[quesdex]);
-		prPoschoic.push(answers[quesdex]);						
-		}
-	}
+// 		for(var i = 0; i < 65; i++){
+// 		quesdex = Math.floor(Math.random()* 90);
+// 		prGuessths.push(questions[quesdex]);
+// 		prPoschoic.push(answers[quesdex]);						
+// 		}
+// 	}
 
-		prTrivgame();
+// 		prTrivgame();
 
 		// Sort the questions so that the same question does not have the chance to be asked
 function trivgame(){
+		quesdex = Math.floor(Math.random()* 90);
+		gen = quesdex;
 	
-		for(var i = 0; i < 45; i++){
+		for(var i = 0; i < 15; i++){
+			guessths.push(questions[gen]);
+			poschoic.push(answers[gen]);
+			gen = gen+1;
 
-			if(prGuessths[gen]!== prGuessths[gen2]){
-				gen++;
-				gen2++;
-				guessths.push(prGuessths[i]);
-				poschoic.push(prPoschoic[i]);
+			// if(prGuessths[gen]!== prGuessths[gen2]){
+			// 	gen++;
+			// 	gen2++;
+			// 	guessths.push(prGuessths[i]);
+			// 	poschoic.push(prPoschoic[i]);
 
-			}
+			// }
 
-			else{ gen++; gen2++;}
+			// else{ gen++; gen2++;}
+
 												
-		}		
+		}	
+		console.log(guessths);
+		console.log(poschoic);
+		console.log(quesdex);	
 
 		// Displaying the questions and the possible answers
 		$("#quest0").append(guessths[0]);
