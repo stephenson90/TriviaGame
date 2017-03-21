@@ -156,7 +156,7 @@ function trivgame(){
 		// Displaying the questions and the possible answers
 		$("#quest0").append(guessths[0]);
 		$("#ans0").append("  " + poschoic[0] + "  ");
-		$("#ans1").append("  " + poschoic[15] + "  ");
+		$("#ans1").append("  " + poschoic[5] + "  ");
 		$("#ans2").append("  " + poschoic[14] + "  ");
 
 		$("#quest1").append(guessths[1]);
