@@ -131,7 +131,7 @@ for ( var i = 0; i<questAns.length; i++){
 
 		// Sort the questions so that the same question does not have the chance to be asked
 function trivgame(){
-		quesdex = Math.floor(Math.random()* 90);
+		quesdex = Math.floor(Math.random()* 76);
 		gen = quesdex;
 	
 		for(var i = 0; i < 15; i++){
