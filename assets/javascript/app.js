@@ -1,8 +1,6 @@
 $(document).ready(function(){
 	$(".done").hide();
 	$(".oneline").hide();
-	
-
 
 var questAns = ["Who was the legendary Benedictine monk who invented champagne? Dom Perignon.",
 "Name the largest freshwater lake in the world? Lake Superior.",
@@ -118,10 +116,7 @@ for ( var i = 0; i<questAns.length; i++){
 	answers.push(tempo);
 	questions.push(temque);
 
-
 }
-
-
 	//selecting 25 random questions and their answers
 function prTrivgame(){
 	
@@ -131,8 +126,6 @@ function prTrivgame(){
 		prPoschoic.push(answers[quesdex]);						
 		}
 	}
-
-
 
 		prTrivgame();
 
@@ -151,9 +144,7 @@ function trivgame(){
 
 			else{ gen++; gen2++;}
 												
-		}
-
-		
+		}		
 
 		// Displaying the questions and the possible answers
 		$("#quest0").append(guessths[0]);
@@ -180,10 +171,8 @@ function trivgame(){
 		$("#ans12").append("  " + poschoic[5] + "  ");
 		$("#ans13").append("  " + poschoic[4] + "  ");
 		$("#ans14").append("  " + poschoic[0] + "  ");
-
 	
-}
-
+		}
 	 
 	$(".start").on("click", function(){
 		countDown();
@@ -200,19 +189,14 @@ function trivgame(){
 
 	 function getAnswers(){
 
-
-
 		var answer0 = $("input[type=radio][name = quest0]:checked").val();
-		allAnswers.push(answer0);
-	
+		allAnswers.push(answer0);	
 
 		var answer1 = $("input[type=radio][name = quest1]:checked").val();
-		allAnswers.push(answer1);
-	
+		allAnswers.push(answer1);	
 
 		var answer2 = $("input[type=radio][name = quest2]:checked").val();
-		allAnswers.push(answer2);
-		
+		allAnswers.push(answer2);		
 
 		var answer3 = $("input[type=radio][name = quest3]:checked").val();
 
@@ -223,10 +207,6 @@ function trivgame(){
 
 		}
 
-	
-	
-
-
 	function checkAnswers(){
 
 		getAnswers();
@@ -234,23 +214,21 @@ function trivgame(){
 		for (var i = 0; i < allAnswers.length; i++){
 
 			if(allAnswers[i] === "true"){
-				rightAns++;
-			
+				rightAns++;		
 				
 			}
 
-			else if (allAnswers[i] === "false"){
+			else{
 				incoAns++;
-							}
-			
+							}			
 		}
-console.log(allAnswers);
+
 	}
 
 	var timeval;
 
 	function countDown(){
-		var clock=30;
+		var clock=20;
 
 		$("#pTime").html("Time left " + clock + " seconds");
 		timeval = setInterval(downSouth, 1000);
@@ -261,14 +239,13 @@ console.log(allAnswers);
 			$("#pTime").html("<h1>" + "Time left " + clock + " seconds" + "</h1>")
 
 			if(clock===0){
-				stop();
-			checkAnswers();
+				
+			checkAnswers();			
 			
-			
-		//$(".result").append("You got " + rightAns+" questions correctly " + incoAns + " questions incorrectly");
-		alert("You got " + rightAns +" questions correctly " + incoAns + " questions incorrectly")
-
-    	
+		$("#result").append("You got " + rightAns+" questions correctly " + incoAns + " questions incorrectly");
+		//alert("You got " + rightAns +" questions correctly " + incoAns + " questions incorrectly")
+		stop();
+		   	
 		}
 
 	}
@@ -276,17 +253,34 @@ console.log(allAnswers);
 }
 		function stop() {
 			  clearInterval(timeval);
-			  window.location.reload(true);
-    }
-		$("form").submit(function(){
-			checkAnswers();
-			
-			
-		//$(".result").append("You got " + rightAns+" questions correctly " + incoAns + " questions incorrectly");
-		alert("You got " + rightAns +" questions correctly " + incoAns + " questions incorrectly");
-		
+			  $(".triv").hide();
 
-		
+			  clock();
+
+			  function clock(){
+			  	var cTime = 5;
+			  	var cTVal = setInterval(countTime, 1000);
+			  	function countTime(){
+			  		cTime--;
+
+			  		if (cTime===0){
+			  			window.location.reload(true);
+
+			  		}
+			  	}
+
+			  }	  
+			  
+
+			  //
+    }
+		$("form").submit(function(event){
+			event.preventDefault();
+			checkAnswers();			
+			
+		$("#result").append("You got " + rightAns+" questions correctly " + incoAns + " questions incorrectly");
+		//alert("You got " + rightAns +" questions correctly " + incoAns + " questions incorrectly");
+		stop();		
 
     	});
 
@@ -295,10 +289,4 @@ console.log(allAnswers);
 	$("#pTime").css({"color":"white","font-size": "26px", "position":"relative", "top":"65px" });
 	
 	
-		console.log(guessths);
-		console.log(poschoic);
-		console.log(rightAns);
-		console.log(incoAns);
-
-
 });
