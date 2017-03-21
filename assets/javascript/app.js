@@ -151,9 +151,7 @@ function trivgame(){
 
 												
 		}	
-		console.log(guessths);
-		console.log(poschoic);
-		console.log(quesdex);	
+			
 
 		// Displaying the questions and the possible answers
 		$("#quest0").append(guessths[0]);
