@@ -156,28 +156,28 @@ function trivgame(){
 		// Displaying the questions and the possible answers
 		$("#quest0").append(guessths[0]);
 		$("#ans0").append("  " + poschoic[0] + "  ");
-		$("#ans1").append("  " + poschoic[2] + "  ");
-		$("#ans2").append("  " + poschoic[4] + "  ");
+		$("#ans1").append("  " + poschoic[15] + "  ");
+		$("#ans2").append("  " + poschoic[14] + "  ");
 
 		$("#quest1").append(guessths[1]);
-		$("#ans3").append("  " + poschoic[3] + "  ");
-		$("#ans4").append("  " + poschoic[4] + "  ");
+		$("#ans3").append("  " + poschoic[13] + "  ");
+		$("#ans4").append("  " + poschoic[12] + "  ");
 		$("#ans5").append("  " + poschoic[1] + "  ");
 
 			$("#quest2").append(guessths[2]);
-		$("#ans6").append("  " + poschoic[5] + "  ");
+		$("#ans6").append("  " + poschoic[11] + "  ");
 		$("#ans7").append("  " + poschoic[2] + "  ");
-		$("#ans8").append("  " + poschoic[0] + "  ");
+		$("#ans8").append("  " + poschoic[10] + "  ");
 
 			$("#quest3").append(guessths[3]);
-		$("#ans9").append("  " + poschoic[4] + "  ");
-		$("#ans10").append("  " + poschoic[1] + "  ");
+		$("#ans9").append("  " + poschoic[8] + "  ");
+		$("#ans10").append("  " + poschoic[9] + "  ");
 		$("#ans11").append("  " + poschoic[3] + "  ");
 
 			$("#quest4").append(guessths[4]);
-		$("#ans12").append("  " + poschoic[5] + "  ");
+		$("#ans12").append("  " + poschoic[7] + "  ");
 		$("#ans13").append("  " + poschoic[4] + "  ");
-		$("#ans14").append("  " + poschoic[0] + "  ");
+		$("#ans14").append("  " + poschoic[6] + "  ");
 	
 		}
 	 
